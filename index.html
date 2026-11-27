@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeritaBaca - Pembaca Teks Berita Indonesia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>BeritaBaca</h1>
+    <p>Pembaca Teks Berita Indonesia</p>
+  </div>
+  <button id="themeBtn" type="button">Mode Gelap</button>
+</header>
+
+<main>
+  <section class="card">
+    <label for="teksBerita">Tempel / Ketik Teks Berita</label>
+    <textarea id="teksBerita" rows="8" placeholder="Tempel teks berita Indonesia di sini... Contoh: Pemerintah mengumumkan program baru untuk pelaku UMKM di seluruh Indonesia..."></textarea>
+    <div class="meta">
+      <span id="infoKata">0 kata</span>
+      <span id="infoDurasi">Estimasi 0 menit</span>
+      <span id="infoKalimat">0 kalimat</span>
+    </div>
+    <div class="samples">
+      <button type="button" data-sample="0">Contoh: Ekonomi UMKM</button>
+      <button type="button" data-sample="1">Contoh: Teknologi Pendidikan</button>
+      <button type="button" data-sample="2">Contoh: Olahraga & Lingkungan</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Pengaturan Suara</h2>
+    <div class="presets">
+      <label><input type="radio" name="preset" value="berita" checked> Berita Formal</label>
+      <label><input type="radio" name="preset" value="cerita"> Cerita / Anak</label>
+      <label><input type="radio" name="preset" value="santai"> Santai</label>
+    </div>
+    <div class="controls-row">
+      <label>Kecepatan <span id="labelKecepatan">1.0x</span>
+        <input type="range" id="kecepatan" min="0.5" max="1.5" step="0.1" value="1">
+      </label>
+      <label>Suara (Indonesia)
+        <select id="pilihSuara"><option value="">Memuat suara...</option></select>
+      </label>
+    </div>
+    <p class="hint" id="dukungan"></p>
+  </section>
+
+  <section class="card player">
+    <div class="player-btns">
+      <button id="btnPutar" type="button" class="primary">Putar</button>
+      <button id="btnJeda" type="button">Jeda</button>
+      <button id="btnLanjut" type="button">Lanjut</button>
+      <button id="btnBerhenti" type="button">Berhenti</button>
+    </div>
+    <div class="progress-wrap">
+      <div id="progressBar"></div>
+    </div>
+    <p id="status">Siap dibaca. Kalimat 0 dari 0.</p>
+    <div class="mini-btns">
+      <button id="btnSalin" type="button">Salin Teks</button>
+      <button id="btnHapus" type="button">Hapus Teks</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Teks yang Dibaca <span class="note">- klik kalimat untuk mulai dari sana</span></h2>
+    <div id="tampilKalimat" class="kalimat-list"><p class="empty">Belum ada teks. Tempel berita di atas.</p></div>
+  </section>
+
+  <section class="card">
+    <h2>Riwayat</h2>
+    <div id="riwayat"></div>
+    <button id="btnHapusRiwayat" type="button">Hapus Semua Riwayat</button>
+  </section>
+</main>
+
+<footer><p>BeritaBaca - Berjalan di browser - Tanpa login - Suara dari perangkat</p></footer>
+<script src="script.js"></script>
+</body>
+</html>
